@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import logo from "./logo.svg";
+import "./App.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = {
+    buttonIsShown: true
+  };
+  render() {
+    return (
+      <div className="App">
+        <header className="App-header">
+          <Welcome msg={"Welcome to React"} />
+          {this.state.buttonIsShown && <p>This message should show and hide</p>}
+          <button>Show / Hide</button>
+        </header>
+      </div>
+    );
+  }
+}
+
+class Welcome extends Component {
+  render() {
+    const { msg } = this.props;
+    return <h1 className="App-title">{this.props.msg}</h1>;
+  }
 }
 
 export default App;
