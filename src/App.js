@@ -1,18 +1,18 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
 import "./App.css";
 
 class App extends Component {
-  state = {
-    buttonIsShown: true
+  handleSubmit = () => {
+    console.log(this.text.value);
   };
+
   render() {
     return (
       <div className="App">
         <header className="App-header">
           <Welcome msg={"Welcome to React"} />
-          {this.state.buttonIsShown && <p>This message should show and hide</p>}
-          <button>Show / Hide</button>
+          <input type="text" ref={input => (this.text = input)} />
+          <button onClick={this.handleSubmit}>Show Value</button>
         </header>
       </div>
     );
