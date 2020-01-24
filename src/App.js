@@ -1,28 +1,34 @@
 import React, { Component } from "react";
+import Movie from "./Movie";
 import "./App.css";
 
-class App extends Component {
-  handleSubmit = () => {
-    console.log(this.text.value);
-  };
+const movies = [
+  {
+    id: 1,
+    title: "Jurassic Park"
+  },
+  {
+    id: 2,
+    title: "Star Wars: Rogue One"
+  },
+  {
+    id: 3,
+    title: "Wonder Woman"
+  }
+];
 
+class App extends Component {
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          <Welcome msg={"Welcome to React"} />
-          <input type="text" ref={input => (this.text = input)} />
-          <button onClick={this.handleSubmit}>Show Value</button>
+          <h1>{"< MOVIEDB >"}</h1>
         </header>
+        {movies.map(movie => (
+          <Movie key={movie.id} movie={movie} />
+        ))}
       </div>
     );
-  }
-}
-
-class Welcome extends Component {
-  render() {
-    const { msg } = this.props;
-    return <h1 className="App-title">{this.props.msg}</h1>;
   }
 }
 
