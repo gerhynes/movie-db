@@ -2,29 +2,31 @@ import React, { Component } from "react";
 import Movie from "./Movie";
 import "./App.css";
 
-const movies = [
-  {
-    id: 1,
-    title: "Jurassic Park"
-  },
-  {
-    id: 2,
-    title: "Star Wars: Rogue One"
-  },
-  {
-    id: 3,
-    title: "Wonder Woman"
-  }
-];
-
 class App extends Component {
+  state = {
+    movies: []
+  };
+  async componentDidMount() {
+    try {
+      const res = await fetch(
+        `https://api.themoviedb.org/3/discover/movie?api_key=b698d228ba0c27131c9c6ff708907bf9&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1`
+      );
+      const movies = await res.json();
+      this.setState({
+        movies: movies.results
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          <h1>{"< MOVIEDB >"}</h1>
+          <h1>{"< MOVIE DB >"}</h1>
         </header>
-        {movies.map(movie => (
+        {this.state.movies.map(movie => (
           <Movie key={movie.id} movie={movie} />
         ))}
       </div>
