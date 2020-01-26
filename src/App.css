@@ -6,9 +6,9 @@
   background-color: #282c34;
   height: 60px;
   padding: 20px;
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.App-header a {
+  color: #fff;
+  text-decoration: none;
 }
