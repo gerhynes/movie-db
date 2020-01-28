@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import Overdrive from "react-overdrive";
 import PropTypes from "prop-types";
 
 const POSTER_PATH = `http://image.tmdb.org/t/p/w154`;
@@ -11,7 +12,9 @@ export const Poster = styled.img`
 
 const Movie = ({ movie }) => (
   <Link to={`/${movie.id}`}>
-    <Poster src={`${POSTER_PATH}${movie.poster_path}`} alt={movie.title} />
+    <Overdrive id={movie.id} duration={300}>
+      <Poster src={`${POSTER_PATH}${movie.poster_path}`} alt={movie.title} />
+    </Overdrive>
   </Link>
 );
 
