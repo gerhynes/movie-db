@@ -25,6 +25,9 @@ const MovieInfo = styled.div`
     position: relative;
     top: -5rem;
   }
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 class MovieDetail extends Component {
