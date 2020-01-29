@@ -5,8 +5,8 @@ import Movie from "./Movie";
 const MovieGrid = styled.div`
   display: grid;
   padding: 1rem;
-  grid-template-columns: repeat(6, 1fr);
-  grid-row-gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 1rem;
 `;
 
 class MoviesList extends PureComponent {
