@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import styled from "styled-components";
 import Movie from "./Movie";
 
@@ -9,7 +9,7 @@ const MovieGrid = styled.div`
   grid-row-gap: 1rem;
 `;
 
-class MoviesList extends Component {
+class MoviesList extends PureComponent {
   state = {
     movies: []
   };
