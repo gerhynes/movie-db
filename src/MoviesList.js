@@ -5,7 +5,9 @@ import Movie from "./Movie";
 const MovieGrid = styled.div`
   display: grid;
   padding: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  max-width: 1100px;
+  margin: 0 auto;
+  grid-template-columns: repeat(auto-fill, minmax(154px, 1fr));
   grid-gap: 1rem;
 `;
 
